@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W-9 Submission | Dundon Advisers LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: #f4f5f7;
+      min-height: 100vh;
+      color: #2d3a55;
+    }
+
+    /* ── NAV ── */
+    .da-nav {
+      background: #fff;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      border-bottom: 1px solid #e0e3ea;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .da-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a3a6b;
+      line-height: 1.15;
+      text-decoration: none;
+    }
+
+    .da-logo span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .da-nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .da-nav-links li a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #3a4a6b;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .da-nav-links li a:hover { color: #1a3a6b; }
+
+    .da-contact-btn {
+      border: 1.5px solid #1a3a6b;
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1a3a6b !important;
+      text-decoration: none;
+      background: transparent;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .da-contact-btn:hover {
+      background: #1a3a6b !important;
+      color: #fff !important;
+    }
+
+    /* ── HERO ── */
+    .da-hero {
+      position: relative;
+      height: 300px;
+      background: linear-gradient(135deg, #1a3a6b 0%, #2a5298 50%, #1a3a6b 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 2.5rem 3rem;
+      overflow: hidden;
+    }
+
+    .da-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px);
+    }
+
+    .da-hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .da-hero-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: #4a9fd4;
+    }
+
+    /* ── BODY LAYOUT ── */
+    .da-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ── CARDS ── */
+    .da-card {
+      background: #fff;
+      border-radius: 4px;
+      border-top: 4px solid #1a3a6b;
+      padding: 2rem 2rem 2.5rem;
+      box-shadow: 0 2px 12px rgba(26,58,107,0.07);
+    }
+
+    .da-faq-card {
+      background: #fff;
+      border-radius: 4px;
+      border-top: 4px solid #4a9fd4;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(26,58,107,0.07);
+    }
+
+    .da-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a3a6b;
+      margin-bottom: 0.35rem;
+    }
+
+    .da-card-sub {
+      font-size: 14px;
+      color: #6b7a99;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .da-section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #1a3a6b;
+      border-bottom: 2px solid #e8ecf5;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FORM ── */
+    .da-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .da-field { margin-bottom: 1rem; }
+
+    .da-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d3a55;
+      margin-bottom: 6px;
+    }
+
+    .da-field input,
+    .da-field select {
+      width: 100%;
+      height: 42px;
+      border: 1.5px solid #d0d7e8;
+      border-radius: 3px;
+      padding: 0 12px;
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+      color: #2d3a55;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .da-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a3a6b' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .da-field input:focus,
+    .da-field select:focus {
+      outline: none;
+      border-color: #1a3a6b;
+      box-shadow: 0 0 0 3px rgba(26,58,107,0.1);
+    }
+
+    .da-field input::placeholder { color: #aab2c8; }
+
+    /* ── UPLOAD ── */
+    .da-upload-zone {
+      border: 2px dashed #c0cadf;
+      border-radius: 3px;
+      padding: 2rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: #f8f9fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .da-upload-zone:hover {
+      border-color: #1a3a6b;
+      background: #eef2fa;
+    }
+
+    .da-upload-zone.dragover {
+      border-color: #1a3a6b;
+      background: #eef2fa;
+    }
+
+    .da-upload-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.75rem;
+      background: #e8ecf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .da-upload-zone p {
+      font-size: 14px;
+      color: #6b7a99;
+      line-height: 1.6;
+    }
+
+    .da-upload-zone a {
+      color: #1a3a6b;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .da-upload-hint {
+      font-size: 12px;
+      color: #aab2c8;
+      margin-top: 0.3rem;
+    }
+
+    .da-file-chosen {
+      font-size: 13px;
+      color: #1a3a6b;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: none;
+      padding: 6px 10px;
+      background: #eef2fa;
+      border-radius: 3px;
+    }
+
+    /* ── TERMS ── */
+    .da-terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 1.5rem 0;
+    }
+
+    .da-terms input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+      accent-color: #1a3a6b;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .da-terms label {
+      font-size: 13px;
+      color: #4a5570;
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    .da-terms a { color: #1a3a6b; font-weight: 600; text-decoration: none; }
+    .da-terms a:hover { text-decoration: underline; }
+
+    /* ── SUBMIT BUTTON ── */
+    .da-submit {
+      width: 100%;
+      height: 46px;
+      background: #1a3a6b;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .da-submit:hover:not(:disabled) { background: #2a5298; }
+    .da-submit:active:not(:disabled) { transform: scale(0.99); }
+
+    .da-submit:disabled {
+      background: #a0aec0;
+      cursor: not-allowed;
+    }
+
+    /* ── SUCCESS ── */
+    .da-success {
+      display: none;
+      background: #eef8f0;
+      border: 1.5px solid #68c47a;
+      border-radius: 3px;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 14px;
+      color: #2a6636;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ── FAQ ── */
+    .da-faq-item {
+      border-bottom: 1px solid #e8ecf5;
+    }
+
+    .da-faq-item:last-child { border-bottom: none; }
+
+    .da-faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .da-faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a3a6b;
+      line-height: 1.4;
+    }
+
+    .da-faq-arrow {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e8ecf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.3s;
+    }
+
+    .da-faq-btn[aria-expanded="true"] .da-faq-arrow {
+      background: #1a3a6b;
+      transform: rotate(180deg);
+    }
+
+    .da-faq-btn[aria-expanded="true"] .da-faq-arrow svg path {
+      stroke: #fff;
+    }
+
+    .da-faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .da-faq-answer.open { max-height: 400px; }
+
+    .da-faq-answer p {
+      font-size: 14px;
+      color: #4a5570;
+      line-height: 1.75;
+      padding-bottom: 1.25rem;
+    }
+
+    /* ── FOOTER ── */
+    .da-footer {
+      background: #1a3a6b;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 13px;
+    }
+
+    .da-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .da-body {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.25rem;
+      }
+
+      .da-form-row { grid-template-columns: 1fr; }
+
+      .da-nav-links { display: none; }
+
+      .da-hero { height: 220px; padding: 2rem 1.5rem; }
+      .da-hero h1 { font-size: 34px; }
+
+      .da-nav { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="da-nav">
+    <a href="#" class="da-logo">Dundon<span>Advisers LLC</span></a>
+    <ul class="da-nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Public Engagements</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#" class="da-contact-btn">W-9 Submit</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="da-hero">
+    <div class="da-hero-grid"></div>
+    <h1>W-9 Submission</h1>
+    <div class="da-hero-bar"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="da-body">
+
+    <!-- FORM CARD -->
+    <div class="da-card">
+      <div class="da-card-title">W-9 Submission Form</div>
+      <p class="da-card-sub">Please complete the fields below and attach your signed W-9. We will process your submission as soon as possible.</p>
+
+      <div class="da-section-label">Contact Information</div>
+
+      <div class="da-form-row">
+        <div class="da-field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Enter your first name" autocomplete="given-name" />
+        </div>
+        <div class="da-field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Enter your last name" autocomplete="family-name" />
+        </div>
+      </div>
+
+      <div class="da-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email address" autocomplete="email" />
+      </div>
+
+      <div class="da-field">
+        <label for="company">Claim Company</label>
+        <select id="company">
+          <option value="" disabled selected>Select your company</option>
+          <option value="fisker">Fisker</option>
+          <option value="tritek">Tritek</option>
+          <option value="hgen">HGEN</option>
+          <option value="omega">Omega</option>
+          <option value="joann">Joann</option>
+        </select>
+      </div>
+
+      <div class="da-section-label" style="margin-top: 1.75rem;">Attach W-9 Document</div>
+
+      <div class="da-upload-zone" id="uploadZone">
+        <div class="da-upload-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a3a6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <p><a id="chooseFileLink">Choose file</a> or drop here</p>
+        <p class="da-upload-hint">PDF, JPG, or PNG &mdash; max 10MB</p>
+        <input type="file" id="w9file" style="display:none;" accept=".pdf,.jpg,.jpeg,.png" />
+      </div>
+
+      <div class="da-file-chosen" id="fileChosen"></div>
+
+      <div class="da-terms">
+        <input type="checkbox" id="terms" />
+        <label for="terms">I agree to the <a href="#">terms and conditions</a> and confirm that the information provided is accurate and complete.</label>
+      </div>
+
+      <button class="da-submit" id="submitBtn" disabled>Submit W-9</button>
+      <div class="da-success" id="successMsg">
+        &#10003; &nbsp;Your W-9 has been submitted successfully. Our team will review your submission and be in touch shortly.
+      </div>
+    </div>
+
+    <!-- FAQ CARD -->
+    <div class="da-faq-card">
+      <div class="da-card-title">Frequently Asked Questions</div>
+      <p class="da-card-sub">Have questions about the W-9 process? Find answers below.</p>
+
+      <div class="da-faq-item">
+        <button class="da-faq-btn" aria-expanded="false">
+          <span class="da-faq-q">Why do I need to submit a W-9?</span>
+          <span class="da-faq-arrow">
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="#1a3a6b" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="da-faq-answer">
+          <p>A W-9 form is required by the IRS so that Dundon Advisers can properly report payments made to you as part of your claim settlement. It provides your taxpayer identification number and certifies your status for tax purposes. Without a completed W-9, we are unable to process or issue your payment.</p>
+        </div>
+      </div>
+
+      <div class="da-faq-item">
+        <button class="da-faq-btn" aria-expanded="false">
+          <span class="da-faq-q">When will I receive payment for my claim?</span>
+          <span class="da-faq-arrow">
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="#1a3a6b" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="da-faq-answer">
+          <p>Once your W-9 has been submitted and verified, payments are typically processed within 30–60 days depending on the status of your specific claim and the court distribution schedule. You will receive a notification via email once your payment has been issued. Timelines may vary based on claim complexity and administrative review.</p>
+        </div>
+      </div>
+
+      <div class="da-faq-item">
+        <button class="da-faq-btn" aria-expanded="false">
+          <span class="da-faq-q">How much should I be expecting?</span>
+          <span class="da-faq-arrow">
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="#1a3a6b" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="da-faq-answer">
+          <p>Your payment amount is determined by the approved claim value established during the claims administration process. You should have received a notice detailing your allowed claim amount. If you have not received this notice or have questions about your specific amount, please contact our team directly via the Contact page for personalized assistance.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="da-footer">
+    &copy; 2026 Dundon Advisers LLC. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a>
+  </footer>
+
+  <script>
+    // File upload handling
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput  = document.getElementById('w9file');
+    const fileChosen = document.getElementById('fileChosen');
+    const termsBox   = document.getElementById('terms');
+    const submitBtn  = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    let fileSelected = false;
+
+    document.getElementById('chooseFileLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      fileInput.click();
+    });
+
+    uploadZone.addEventListener('click', function() {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+      if (this.files.length > 0) {
+        fileSelected = true;
+        fileChosen.style.display = 'block';
+        fileChosen.textContent = '📎 ' + this.files[0].name;
+        checkSubmit();
+      }
+    });
+
+    uploadZone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('dragover');
+    });
+
+    uploadZone.addEventListener('dragleave', function() {
+      this.classList.remove('dragover');
+    });
+
+    uploadZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        fileSelected = true;
+        fileChosen.style.display = 'block';
+        fileChosen.textContent = '📎 ' + files[0].name;
+        checkSubmit();
+      }
+    });
+
+    termsBox.addEventListener('change', checkSubmit);
+
+    function checkSubmit() {
+      submitBtn.disabled = !(termsBox.checked && fileSelected);
+    }
+
+    submitBtn.addEventListener('click', function() {
+      const fname   = document.getElementById('fname').value.trim();
+      const lname   = document.getElementById('lname').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const company = document.getElementById('company').value;
+
+      if (!fname || !lname || !email || !company) {
+        alert('Please fill in all required fields before submitting.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      submitBtn.textContent = 'Submitted ✓';
+      submitBtn.disabled = true;
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.da-faq-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const answer   = this.nextElementSibling;
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+
+        // Close all
+        document.querySelectorAll('.da-faq-btn').forEach(function(b) {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+
+        // Open clicked (unless it was already open)
+        if (!expanded) {
+          this.setAttribute('aria-expanded', 'true');
+          answer.classList.add('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
